@@ -154,13 +154,13 @@ Repository URL:
 Enter your GitHub repository URL:
 
 ```text
-https://github.com/rajendrakmr/<repository-name>.git
+https://github.com/rajendrakmr/argocd.git
 ```
 
 Specify the revision:
 
 ```text
-HEAD
+main
 ```
 
 Specify the manifest path:
