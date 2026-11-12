@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: httpd-cli-svc
+  name: apache-app-cli
 spec: 
   selector:
-    app: httpd-cli
+    app: apache-app-cli
   ports:
   - port: 8002
     targetPort: 80
@@ -24,12 +24,12 @@ spec:
 #   --self-heal \
 #   --auto-prune
 
-argocd app create apache-app \
-  --repo https://github.com/rajendrakmr/argocd.git \
-  --revision dev \
-  --path app-deployment/cli-approach \
-  --dest-server https://kubernetes.default.svc \
-  --dest-namespace default \
-  --sync-policy automated \
-  --self-heal \
-  --auto-prune
+# argocd app create apache-app \
+#   --repo https://github.com/rajendrakmr/argocd.git \
+#   --revision dev \
+#   --path app-deployment/cli-approach \
+#   --dest-server https://kubernetes.default.svc \
+#   --dest-namespace default \
+#   --sync-policy automated \
+#   --self-heal \
+#   --auto-prune
