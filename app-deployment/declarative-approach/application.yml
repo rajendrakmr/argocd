@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: httpd-app          
+  namespace: argocd 
+  labels:
+    app: httpd
+    environment: dev
+    managed-by: argocd
+    team: devops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rajendrakmr/argocd.git
+    targetRevision: main
+    path: app-deployment/declarative-approach
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
