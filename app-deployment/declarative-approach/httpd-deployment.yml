@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: httpd-cli
-  label:
-    app: cli-approach
+  name: apache-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: httpd-cli
+      app: apache-app
   template:
     metadata:
       labels:
-        app: httpd-cli
+        app: apache-app
     spec:
       containers:
-      - name: httpd-cli
+      - name: apache-app
         image: httpd:latest
         resources:
           limits:
