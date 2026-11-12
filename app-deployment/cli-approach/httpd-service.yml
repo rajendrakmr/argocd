@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-cli-svc
+spec: 
+  selector:
+    app: httpd-cli
+  ports:
+  - port: 8002
+    targetPort: 80
+
+
+# argocd login localhost:8080 \
+#   --username admin \
+#   --password Test@12345 \
+#   --insecure
+
+# argocd app create apache-app \
+#   --repo https://github.com/rajendrakmr/argocd.git \
+#   --path app-deployment/cli-approach \
+#   --dest-server https://10.71.241.181:33893  \
+#   --dest-namespace default \
+#   --sync-policy automated \
+#   --self-heal \
+#   --auto-prune
+
+argocd app create apache-app \
+  --repo https://github.com/rajendrakmr/argocd.git \
+  --revision dev \
+  --path app-deployment/cli-approach \
+  --dest-server https://kubernetes.default.svc \
+  --dest-namespace default \
+  --sync-policy automated \
+  --self-heal \
+  --auto-prune
